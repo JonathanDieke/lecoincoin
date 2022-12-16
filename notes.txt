@@ -1,0 +1,3 @@
+revoir le rendu html pour les user_roles : potentiellement utiliser des customtag 
+
+faire de la recherche sur toutes les pages index 
