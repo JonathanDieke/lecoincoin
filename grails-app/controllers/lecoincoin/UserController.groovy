@@ -62,9 +62,12 @@ class UserController {
         }
 
         try {
-            userService.save(user)
+            def userEdited = userService.save(user)
+            UserRole.removeAll(userEdited)
+            UserRole.create(userEdited, Role.get(params.role), true)
         } catch (ValidationException e) {
-            respond user.errors, view:'edit'
+            def roleList = Role.list()
+            respond user.errors, view:'edit', model: [roleList: roleList]
             return
         }
 
