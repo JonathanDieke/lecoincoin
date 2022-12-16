@@ -14,10 +14,6 @@
     <g:layoutHead/>
 </head>
 
-<heading>
-    test heading
-</heading>
-
 <body>
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">

@@ -55,39 +55,36 @@
         </div>
 
         <div class="container-fluid">
-%{--            <div class="row">--}%
-                <div class="col-120 table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th scope="col">Nom d'utilisateur</th>
-                            <th scope="col">Mot de passe</th>
-                            <th scope="col">Roles</th>
-                            <th scope="col">Nombre d'annonces</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <g:each in="${userList}" var="user">
-                                <tr>
-                                    <th scope="row">${user.username.toUpperCase()}</th>
-                                    <td>${user.getPartialPassword()}...</td>
-                                    <td>${user.getAuthoritiesForHTMLRender()}</td>
-                                    <td>${user.annonces.size()}</td>
-                                    <td class="d-sm-flex justify-content-between">
-                                        <a href="/user/show/${user.id}" class="btn btn-primary"><i class="far fa-eye"></i></a>
-                                        <a href="/user/edit/${user.id}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                        <a type="button" class="btn btn-danger" onclick="confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}') ? document.querySelector('#form-delete-user${user.id}').submit() : null"><i class="far fa-trash-alt"></i></a>
-                                    </td>
-                                    <g:form resource="${user}" method="DELETE" id="form-delete-user${user.id}">
-                                    </g:form>
-                                </tr>
-
-                            </g:each>
-                        </tbody>
-                    </table>
-                </div>
-%{--            </div>--}%
+            <div class="col-120 table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom d'utilisateur</th>
+                        <th scope="col">Mot de passe</th>
+                        <th scope="col">Roles</th>
+                        <th scope="col">Nombre d'annonces</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <g:each in="${userList}" var="user">
+                            <tr>
+                                <th scope="row">${user.username.toUpperCase()}</th>
+                                <td>${user.getPartialPassword()}...</td>
+                                <td>${user.getAuthoritiesForHTMLRender()}</td>
+                                <td>${user.annonces.size()}</td>
+                                <td class="d-sm-flex justify-content-between">
+                                    <a href="/user/show/${user.id}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                                    <a href="/user/edit/${user.id}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                    <a type="button" class="btn btn-danger" onclick="confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}') ? document.querySelector('#form-delete-user${user.id}').submit() : null"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                                <g:form resource="${user}" method="DELETE" id="form-delete-user${user.id}">
+                                </g:form>
+                            </tr>
+                        </g:each>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>

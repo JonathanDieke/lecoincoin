@@ -70,7 +70,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = "Utilisateur mis à jour !"
                 redirect user
             }
             '*'{ respond user, [status: OK] }
@@ -82,8 +82,9 @@ class UserController {
             notFound()
             return
         }
-
-        userService.delete(id)
+        def userToDelete = userService.get(id)
+        UserRole.removeAll(userToDelete)
+        userService.delete(userToDelete.id)
 
         request.withFormat {
             form multipartForm {

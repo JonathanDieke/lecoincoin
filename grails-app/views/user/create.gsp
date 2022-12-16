@@ -32,7 +32,7 @@
                         <span class='required-indicator '>*</span>
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="username" name="username">
+                        <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@
                         <span class='required-indicator'>*</span>
                     </label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                         <span class='required-indicator'>*</span>
                     </label>
                     <div class="col-sm-10">
-                        <select class="custom-select mb-0" name="role" id="role">
+                        <select class="custom-select mb-0" name="role" id="role" required>
                             <option selected>Attribuer un rôle</option>
                             <g:each in="${roleList}" var="role">
                                 <option value="${role.id}">${role.authority}</option>

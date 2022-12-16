@@ -37,31 +37,36 @@
 %{--            </g:form>--}%
 %{--        </div>--}%
     <div class="container-fluid d-sm-flex align-items-center justify-content-between mb-4">
-        <h1  class="h3 mb-3 text-dark">
+        <h1  class="text-dark">
             <g:message code="default.edit.label" args="[entityName]"/>
         </h1>
     </div>
 
-    <div id="create-user" class="content scaffold-create" role="main">
+    <div id="create-user" class="content scaffold-create container-fluid" role="main">
         <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
+            <div class="alert alert-success text-center" role="status">*
+                ${flash.message}
+            </div>
         </g:if>
         <g:hasErrors bean="${this.user}">
-            <ul class="errors" role="alert">
-                <g:eachError bean="${this.user}" var="error">
-                    <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
-                            error="${error}"/></li>
-                </g:eachError>
-            </ul>
+            <div class="alert alert-warning mb-3">
+                <ul class="errors" role="alert">
+                    <g:eachError bean="${this.user}" var="error">
+                        <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>>
+                            <g:message error="${error}"/>
+                        </li>
+                    </g:eachError>
+                </ul>
+            </div>
         </g:hasErrors>
-        <g:form resource="${this.user}" method="PUT" class="form container-fluid">
+        <g:form resource="${this.user}" method="PUT" class="form container-fluidd">
             <g:hiddenField name="version" value="${this.user?.version}" />
             <div class="form-group row">
                 <label class="text-dark col-sm-2" for="username">Nom d'utilisateur
                     <span class='required-indicator '>*</span>
                 </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" name="username" value="${user.username}">
+                    <input type="text" class="form-control" id="username" name="username" value="${user.username}" >
                 </div>
             </div>
 
@@ -70,7 +75,7 @@
                     <span class='required-indicator'>*</span>
                 </label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password" name="password" />
+                    <input type="password" class="form-control" id="password" name="password"  />
                 </div>
             </div>
 
@@ -79,7 +84,7 @@
                     <span class='required-indicator'>*</span>
                 </label>
                 <div class="col-sm-10">
-                    <select class="custom-select mb-0" name="role" id="role">
+                    <select class="custom-select mb-0" name="role" id="role" required>
                         <option selected>Attribuer un rôle</option>
                         <g:each in="${roleList}" var="role">
                             <g:if test="${role.id == user.getAuthorities()[0].id}">
