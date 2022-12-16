@@ -94,9 +94,9 @@
             </div>
 
             <fieldset class="buttons">
-                <g:submitButton name="create"
-                                class="save btn btn-primary shadow-lg"
-                                value="${message(code: 'default.button.create.label', default: 'Create')}"/>
+                <g:submitButton name="edit"
+                                class="save btn btn-success shadow-lg"
+                                value="${message(code: 'default.button.edit.label', default: 'Editer')}"/>
             </fieldset>
         </g:form>
     </div>

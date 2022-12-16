@@ -42,7 +42,8 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
+//                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = "Utilisateur créé !"
                 redirect user
             }
             '*' { respond user, [status: CREATED] }

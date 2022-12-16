@@ -14,8 +14,9 @@
         </div>
 
         <div id="show-user" class="content scaffold-show container-fluid " role="main">
+
             <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
+                <div class="message alert alert-success text-center" role="status">${flash.message}</div>
             </g:if>
 
 %{--            <ol class="property-list user">--}%
