@@ -20,10 +20,6 @@ class User implements Serializable {
 
     static hasMany = [annonces : Annonce]
 
-    def getPartialPassword(){
-        return this.password.take(30)
-    }
-
     def getAuthoritiesForHTMLRender(){
         def authorityNames = []
         this.getAuthorities().each { role -> authorityNames.add role.authority}

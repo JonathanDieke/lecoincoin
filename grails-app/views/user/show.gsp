@@ -48,8 +48,8 @@
                         <span class="text-dark font-weight-bold">${user.username}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span class="text-gray-700"> Mot de passe : </span>
-                        <span class="text-dark font-weight-bold">${user.password}</span>
+                        <span class="text-gray-700"> Nombre d'annonces : </span>
+                        <span class="text-dark font-weight-bold">${user.annonces.size()}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span class="text-gray-700"> Rôles : </span>

@@ -51,7 +51,7 @@
         <!-- End Page Heading -->
 
         <div class="pagination">
-            <g:paginate total="${userCount ?: 0}" />
+            <g:paginate total="${userCount ?: 0}" max="5" />
         </div>
 
         <div class="container-fluid">
@@ -60,9 +60,8 @@
                     <thead>
                     <tr>
                         <th scope="col">Nom d'utilisateur</th>
-                        <th scope="col">Mot de passe</th>
-                        <th scope="col">Roles</th>
                         <th scope="col">Nombre d'annonces</th>
+                        <th scope="col">Roles</th>
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
@@ -70,9 +69,8 @@
                         <g:each in="${userList}" var="user">
                             <tr>
                                 <th scope="row">${user.username.toUpperCase()}</th>
-                                <td>${user.getPartialPassword()}...</td>
-                                <td>${user.getAuthoritiesForHTMLRender()}</td>
                                 <td>${user.annonces.size()}</td>
+                                <td>${user.getAuthoritiesForHTMLRender()}</td>
                                 <td class="d-sm-flex justify-content-between">
                                     <a href="/user/show/${user.id}" class="btn btn-primary"><i class="far fa-eye"></i></a>
                                     <a href="/user/edit/${user.id}" class="btn btn-success"><i class="fas fa-edit"></i></a>
