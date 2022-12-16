@@ -49,7 +49,7 @@
 
         <!-- Nav Item - Accueil -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Accueil</span></a>
         </li>
@@ -73,8 +73,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Sous-menu</h6>
-                    <a class="collapse-item" href="#">Lister les utilisateurs</a>
-                    <a class="collapse-item" href="#">Créer un utilisateur</a>
+                    <a class="collapse-item" href="/user/index">Lister les utilisateurs</a>
+                    <a class="collapse-item" href="/user/create">Créer un utilisateur</a>
                 </div>
             </div>
         </li>
@@ -89,8 +89,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Sous-menu </h6>
-                    <a class="collapse-item" href="#">Lister les annonces</a>
-                    <a class="collapse-item" href="#">Créer une annonce</a>
+                    <a class="collapse-item" href="/annonce/index">Lister les annonces</a>
+                    <a class="collapse-item" href="/annonce/create">Créer une annonce</a>
                 </div>
             </div>
         </li>
@@ -329,7 +329,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span> Copyright &copy; All rights reserved - Jonathan DIEKE </span>
+                    <span> Copyright &copy; All rights reserved - Jonathan DIEKE / Serge DOUDOU </span>
                 </div>
             </div>
         </footer>
