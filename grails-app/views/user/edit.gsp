@@ -37,7 +37,7 @@
 %{--            </g:form>--}%
 %{--        </div>--}%
     <div class="container-fluid d-sm-flex align-items-center justify-content-between mb-4">
-        <h1  class="text-dark">
+        <h1 class="text-dark">
             <g:message code="default.edit.label" args="[entityName]"/>
         </h1>
     </div>

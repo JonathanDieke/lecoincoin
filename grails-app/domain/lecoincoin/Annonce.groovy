@@ -17,6 +17,15 @@ class Annonce {
         isActive nullable: false
     }
 
+    def getIsActive(){
+        return this.isActive ? "Actif" : "Non-actif"
+    }
+
+    def getTruncateDescription(int maxLength){
+
+        return this.description.length() <= maxLength ? this.description : this.description.take(maxLength) + "..."
+    }
+
     static mapping = {
         description type: 'text'
     }

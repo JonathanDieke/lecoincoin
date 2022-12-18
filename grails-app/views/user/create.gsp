@@ -9,7 +9,7 @@
     <body>
 
         <div class="container-fluid d-sm-flex align-items-center justify-content-between mb-4">
-            <h1  class="h3 mb-3 text-dark">
+            <h1 class="h3 mb-3 text-dark">
                 <g:message code="default.create.label" args="[entityName]"/>
             </h1>
         </div>

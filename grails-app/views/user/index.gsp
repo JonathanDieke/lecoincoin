@@ -11,36 +11,9 @@
     </heading>
 
     <body>
-%{--        <a href="#list-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
-%{--        <div class="nav" role="navigation">--}%
-%{--            <ul>--}%
-%{--                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>--}%
-%{--                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
-%{--            </ul>--}%
-%{--        </div>--}%
-%{--        <div id="list-user" class="content scaffold-list" role="main">--}%
-%{--            <h1><g:message code="default.list.label" args="[entityName]" /></h1>--}%
-%{--            <g:if test="${flash.message}">--}%
-%{--                <div class="message" role="status">${flash.message}</div>--}%
-%{--            </g:if>--}%
-%{--            <f:table collection="${userList}" />--}%
-
-%{--            <div class="pagination">--}%
-%{--                <g:paginate total="${userCount ?: 0}" />--}%
-%{--            </div>--}%
-%{--        </div>--}%
-
         <!-- Page Heading -->
-%{--        <div class="container-fluid mb-4 d-sm-flex align-items-center justify-content-between ">--}%
-%{--            <h1 class="mb-0 text-dark">--}%
-%{--                <g:message code="default.list.label" args="[entityName]"/>--}%
-%{--            </h1>--}%
-%{--        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i--}%
-%{--                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a--}%
-%{--        </div>--}%
-
         <div class="container-fluid d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-3 text-dark">
+            <h1 class="mb-3 text-dark">
                 <g:message code="default.list.label" args="[entityName]"/>
             </h1>
             <g:link class="create d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" action="create">
@@ -50,6 +23,10 @@
         </div>
         <!-- End Page Heading -->
 
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
+
         <div class="pagination">
             <g:paginate total="${userCount ?: 0}" max="5" />
         </div>
@@ -58,12 +35,12 @@
             <div class="col-120 table-responsive">
                 <table class="table table-bordered">
                     <thead>
-                    <tr>
-                        <th scope="col">Nom d'utilisateur</th>
-                        <th scope="col">Nombre d'annonces</th>
-                        <th scope="col">Roles</th>
-                        <th scope="col">Actions</th>
-                    </tr>
+                        <tr >
+                            <th scope="col">Nom d'utilisateur</th>
+                            <th scope="col">Nombre d'annonces</th>
+                            <th scope="col">Roles</th>
+                            <th scope="col">Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <g:each in="${userList}" var="user">
@@ -71,7 +48,7 @@
                                 <th scope="row">${user.username.toUpperCase()}</th>
                                 <td>${user.annonces.size()}</td>
                                 <td>${user.getAuthoritiesForHTMLRender()}</td>
-                                <td class="d-sm-flex justify-content-between">
+                                <td class="d-flex justify-content-around">
                                     <a href="/user/show/${user.id}" class="btn btn-primary"><i class="far fa-eye"></i></a>
                                     <a href="/user/edit/${user.id}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                     <a type="button" class="btn btn-danger" onclick="confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}') ? document.querySelector('.form-delete-user-${user.id}').submit() : null"><i class="far fa-trash-alt"></i></a>
