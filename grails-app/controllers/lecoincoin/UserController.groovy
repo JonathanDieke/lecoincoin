@@ -22,6 +22,7 @@ class UserController {
 
     def create() {
         def roleList = Role.list()
+        println roleList
         respond new User(params), model: [roleList: roleList]
     }
 

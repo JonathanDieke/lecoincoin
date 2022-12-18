@@ -6,6 +6,7 @@ import static org.springframework.http.HttpStatus.*
 class AnnonceController {
 
     AnnonceService annonceService
+    UserService userService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -19,7 +20,7 @@ class AnnonceController {
     }
 
     def create() {
-        respond new Annonce(params)
+        respond new Annonce(params), model:[userList: userService.list()]
     }
 
     def save(Annonce annonce) {
@@ -29,6 +30,8 @@ class AnnonceController {
         }
 
         try {
+            annonce.status = params.status == "on" ? Boolean.TRUE : Boolean.FALSE
+//            println params.status
             annonceService.save(annonce)
         } catch (ValidationException e) {
             respond annonce.errors, view:'create'
@@ -45,7 +48,7 @@ class AnnonceController {
     }
 
     def edit(Long id) {
-        respond annonceService.get(id)
+        respond annonceService.get(id), model:[userList: userService.list()]
     }
 
     def update(Annonce annonce) {

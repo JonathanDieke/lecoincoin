@@ -45,7 +45,7 @@
                             <th scope="row">${annonce.title.toUpperCase()}</th>
                             <td>${annonce.getTruncateDescription(20)}</td>
                             <td>${annonce.price}</td>
-                            <td>${annonce.isActive}</td>
+                            <td>${annonce.status}</td>
                             <td>${annonce.illustrations.size()}</td>
                             <td class="d-sm-flex justify-content-around h-100">
                                 <a href="/annonce/show/${annonce.id}" class="btn btn-primary"><i class="far fa-eye "></i></a>

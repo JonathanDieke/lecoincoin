@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
+        <meta name="layout" content="my-layout" />
         <g:set var="entityName" value="${message(code: 'annonce.label', default: 'Annonce')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
-        <a href="#show-annonce" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
+        <div class="container-fluid mb-4">
+            <h1  class="mb-3 text-dark">
+                <g:message code="default.show.label" args="[entityName]"/>
+            </h1>
         </div>
+
         <div id="show-annonce" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="annonce" />
-            <g:form resource="${this.annonce}" method="DELETE">
-                <fieldset class="buttons">
-                    <g:link class="edit" action="edit" resource="${this.annonce}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+
+            <div class="card w-100 col-sm-11 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    Informations détaillées
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-gray-700"> Title : </span>
+                        <span class="text-dark font-weight-bold">${annonce.title}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-gray-700"> Description : </span>
+                        <span class="text-dark font-weight-bold">${annonce.description}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-gray-700"> Prix </span>
+                        <span class="text-dark font-weight-bold">${annonce.price}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-gray-700"> Illustrations </span>
+                        <span class="text-dark font-weight-bold">${annonce.illustrations.size()}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <g:form resource="${this.annonce}" method="DELETE" class="justify-content-center d-flex col-sm-11">
+                <fieldset class="buttons w-100 d-flex justify-content-around">
+                    <g:link class="edit btn btn-success shadow-sm" action="edit" resource="${this.annonce}">
+                        <g:message code="default.button.edit.label" default="Edit" />
+                    </g:link>
+                    <input class="delete btn btn-danger shadow-sm" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                 </fieldset>
             </g:form>
         </div>
