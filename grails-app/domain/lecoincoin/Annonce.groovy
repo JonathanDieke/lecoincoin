@@ -5,7 +5,7 @@ class Annonce {
     String title
     String description
     Float price
-    Boolean status = Boolean.FALSE
+    Boolean isActive = Boolean.FALSE
     Date dateCreated
     Date lastUpdated
     List illustrations
@@ -14,11 +14,11 @@ class Annonce {
         title blank: false, maxSize: 50, minSize: 3, nullable: false
         description blank: false, nullable: false
         price min: 0F, nullable: false, scale: 2
-        status nullable: false
+        isActive nullable: false
     }
 
     def getStatus(){
-        return this.status ? "Actif" : "Non-actif"
+        return this.isActive ? "Actif" : "Non-actif"
     }
 
 //    def setIsActive(String status){

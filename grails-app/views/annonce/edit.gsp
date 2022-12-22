@@ -56,7 +56,7 @@
                         <span class='required-indicator'>*</span>
                     </label>
                     <div class="col-sm-10 col-lg-8">
-                        <input type="number" min="0" class="form-control" id="price" name="price" value="${this.annonce.price}" >
+                        <input type="number" min="0" step="0.01" class="form-control" id="price" name="price" value="${this.annonce.price}" >
                     </div>
                 </div>
 

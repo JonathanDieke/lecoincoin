@@ -4,11 +4,14 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'lecoincoin.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'lecoincoin.UserRole'
 grails.plugin.springsecurity.authority.className = 'lecoincoin.Role'
+grails.plugin.springsecurity.logout.postOnly = false
+
 //grails.plugin.springsecurity.requestMap.className = 'lecoincoin.UserRole'
 //grails.plugin.springsecurity.securityConfigType = 'Annotation'
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
-	[pattern: '/**',             access: ['permitAll']],
+	[pattern: '/dbconsole/**',               access: ['permitAll']],
 	[pattern: '/login/**',     	 access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],

@@ -36,6 +36,10 @@
                         <span class="text-dark font-weight-bold">${annonce.price}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-gray-700"> Autheur </span>
+                        <span class="text-dark font-weight-bold">${annonce.author.username}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
                         <span class="text-gray-700"> Illustrations </span>
                         <span class="text-dark font-weight-bold">${annonce.illustrations.size()}</span>
                     </li>
