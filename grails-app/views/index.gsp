@@ -8,26 +8,50 @@
 
 
     <div id="content" role="main" class="container-fluid">
-        <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
 
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
+        <h1 class="text-dark font-weight-bold">Bienvenue sur Lecoincoin</h1>
 
-            <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
+        <section class="row colset-2-its mx-auto row py-3">
+
+            <div class="card col-12 col-lg-5 p-0 " style="width: 18rem; height: 9rem">
+                <div class="card-body text-center">
+                    <i class="fa fa-user-friends fa-3x"> </i>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/users/index" class="">
+                        Liste des utilisateurs
+                    </a>
+                </div>
             </div>
+
+            <div class="card col-12 col-lg-5 ml-auto mt-3 mt-lg-0 p-0" style="width: 18rem; height: 9rem">
+                <div class="card-body text-center">
+                    <i class="fa fa-user-plus fa-3x"> </i>
+                </div>
+                <div class="card-footer text-center ">
+                    Ajouter un utilisateur
+                </div>
+            </div>
+
+            <div class="card col-12 col-lg-5 mt-3 p-0" style="width: 18rem; height: 9rem">
+                <div class="card-body text-center">
+                    <i class="fa fa-list fa-3x"> </i>
+                </div>
+                <div class="card-footer text-center ">
+                    Liste des annonces
+                </div>
+            </div>
+
+            <div class="card col-12 col-lg-5 ml-auto mt-3 p-0" style="width: 18rem; height: 9rem">
+                <div class="card-body text-center">
+                    <i class="fa fa-cart-plus fa-3x"> </i>
+                </div>
+                <div class="card-footer text-center ">
+                    Ajouter une annonce
+                </div>
+            </div>
+
+
         </section>
     </div>
 

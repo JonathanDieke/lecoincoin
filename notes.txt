@@ -4,4 +4,10 @@ faire de la recherche sur toutes les pages index
 
 rajouter nombre de users max par page 
 
-refactoring bootstrap with loops
+refactoring bootstrap with loops - ok
+
+
+
+Todo :
+- add cards on index page
+- redirect on login page when request on /
