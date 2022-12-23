@@ -5,6 +5,8 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'lecoincoin.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'lecoincoin.UserRole'
 grails.plugin.springsecurity.authority.className = 'lecoincoin.Role'
 grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
+
 
 //grails.plugin.springsecurity.requestMap.className = 'lecoincoin.UserRole'
 //grails.plugin.springsecurity.securityConfigType = 'Annotation'
