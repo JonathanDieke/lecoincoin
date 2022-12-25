@@ -36,7 +36,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
+    <!-- Sidebar - Brand -->
         <g:link class="sidebar-brand d-flex align-items-center justify-content-center" mapping="home">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
@@ -45,14 +45,14 @@
             <div class="sidebar-brand-text mx-3">Lecoincoin</div>
         </g:link>
 
-        <!-- Divider -->
+    <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Accueil -->
         <li class="nav-item active">
-            <a class="nav-link" href="/">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Accueil</span></a>
+            <g:link class="nav-link" mapping="home">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Accueil</span></g:link>
         </li>
 
         <!-- Divider -->
@@ -60,32 +60,37 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Interface
+            Menu
         </div>
 
-        <!-- Nav Item - User Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilisateurs</span>
-            </a>
+    <!-- Nav Item - User Collapse Menu -->
+        <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_MODERATOR">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                   aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    <span>Utilisateurs</span>
+                </a>
 
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Sous-menu</h6>
-                    <a class="collapse-item" href="/user/index">Lister les utilisateurs</a>
-                    <a class="collapse-item" href="/user/create">Créer un utilisateur</a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Sous-menu</h6>
+                        <a class="collapse-item" href="/user/index">
+                            Lister les utilisateurs</a>
+                        <a class="collapse-item" href="/user/create">Créer un utilisateur</a>
+                    </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        </sec:ifAnyGranted>
 
-        <!-- Nav Item - Ads Collapse Menu -->
+
+
+    <!-- Nav Item - Ads Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-newspaper"></i>
                 <span>Les annonces</span>
             </a>
 

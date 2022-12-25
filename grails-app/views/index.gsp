@@ -35,7 +35,7 @@
 
             <div class="card col-12 col-lg-5 mt-3 p-0" style="width: 18rem; height: 9rem">
                 <div class="card-body text-center">
-                    <i class="fa fa-list fa-3x"> </i>
+                    <i class="fa fa-newspaper fa-3x"> </i>
                 </div>
                 <div class="card-footer text-center ">
                     Liste des annonces

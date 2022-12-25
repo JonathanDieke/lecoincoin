@@ -16,17 +16,17 @@ class BootStrap {
         UserRole.create(adminUser, roleAdmin, true)
         UserRole.create(moderatorUser, roleModerator, true)
 
-        ["customer1","customer2"].each {
+        ["customer1","customer2"].each { // create users
             String uName ->
                 def userInstance = new User(username: uName, password: uName)
-                (1..3).each {
+                (1..3).each { // create annonces
                     Integer aIndex ->
                         def annonceInstance = new Annonce(
                                 title: "Titre annonce $aIndex de $uName",
                                 description: "Description annonce $aIndex de $uName",
                                 price: 100 * aIndex,
                                 isActive: Boolean.TRUE)
-                        (1..2).each {
+                        (1..2).each {// create illutations belong to annonce
                             annonceInstance.addToIllustrations(new Illustration(filename: "grails.svg"))
                         }
                         userInstance.addToAnnonces(annonceInstance)

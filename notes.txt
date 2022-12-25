@@ -9,5 +9,6 @@ refactoring bootstrap with loops - ok
 
 
 Todo :
-- add cards on index page
-- redirect on login page when request on /
+- add cards on index page (ok)
+- redirect on login page when request on / (ok)
+- pagination render

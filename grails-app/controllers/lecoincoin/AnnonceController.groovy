@@ -1,21 +1,28 @@
 package lecoincoin
 
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-
-@Secured(["ROLE_ADMIN", "ROLE_MODERATOR"])
+import grails.plugin.springsecurity.SpringSecurityService
 
 class AnnonceController {
 
     AnnonceService annonceService
     UserService userService
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 5, 100)
-        respond annonceService.list(params), model:[annonceCount: annonceService.count()]
+
+        def currentUser = springSecurityService.currentUser
+        if(currentUser.getAuthorities()[0].authority == "ROLE_CUSTOMER"){
+            render view :"index", model:[annonceList: currentUser.annonces.sort { it.dateCreated }, annonceCount: currentUser.annonces.size()]
+        }else{
+            respond annonceService.list(params), model:[annonceCount: annonceService.count()]
+        }
     }
 
     def show(Long id) {
