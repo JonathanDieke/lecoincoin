@@ -14,9 +14,11 @@
 </div>
 
 <div id="create-annonce" class="content scaffold-create">
+
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
+
     <g:hasErrors bean="${this.annonce}">
         <ul class="errors" role="alert">
             <g:eachError bean="${this.annonce}" var="error">
@@ -25,7 +27,8 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <g:form resource="${this.annonce}" method="POST" class="form container-fluid">
+
+    <g:form resource="${this.annonce}" method="POST" class="form container-fluid" enctype="multipart/form-data">
         <div class="form-group row">
             <label class="text-dark col-sm-2" for="title">Titre
                 <span class='required-indicator'>*</span>
@@ -73,6 +76,17 @@
         </sec:ifAnyGranted>
 
         <div class="form-group row">
+            <label class="text-dark col-sm-2" for="price">Illustrations
+                <span class='required-indicator'></span>
+            </label>
+
+            <div class="col-sm-10 col-lg-8 custom-file px-5">
+                <input type="file" class="custom-file-input" id="files" name="files">
+                <label class="custom-file-label" for="files">Ajouter des images</label>
+            </div>
+        </div>
+
+        <div class="form-group row">
             <div class="col-sm-10 offset-sm-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="status" name="status">
@@ -92,5 +106,18 @@
         </fieldset>
     </g:form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>
+    $('.custom-file input').change(function (e) {
+        var files = [];
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            files.push($(this)[0].files[i].name);
+        }
+        $(this).next('.custom-file-label').html(files.join(', '));
+    });
+
+</script>
 </body>
 </html>

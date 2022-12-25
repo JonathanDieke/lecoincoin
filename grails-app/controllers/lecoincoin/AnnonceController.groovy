@@ -1,7 +1,5 @@
 package lecoincoin
 
-import grails.plugin.springsecurity.SpringSecurityService
-import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.SpringSecurityService
@@ -40,11 +38,29 @@ class AnnonceController {
         }
 
         try {
+            // get files for illustrations
+            def files = request.getFile('files')
+            //check size of files
+            if (!validateFileIllustration(files)) {
+                return
+            }
+            //save annonce
             if (params.author == null) {
                 annonce.author = springSecurityService.currentUser
             }
+
             annonce.isActive = params.status == "on" ? Boolean.TRUE : Boolean.FALSE
-            annonceService.save(annonce)
+            annonce.save(flush: true)
+
+            //now transfer file
+            final filename = "user-" + springSecurityService.currentUserId + "-annonce-" + annonce.id + '-' + System.currentTimeMillis() + '-' + files.originalFilename.replace(" ", "_").toLowerCase()
+            def pathToDir = new File(System.getProperty("user.dir"))
+            File fileDest = new File(pathToDir, "grails-app/uploads/${filename}")
+            files.transferTo(fileDest)
+
+            annonce.addToIllustrations(new Illustration(filename: filename))
+            annonce.save(flush: true)
+
         } catch (ValidationException e) {
             respond annonce.errors, view: 'create'
             return
@@ -70,6 +86,10 @@ class AnnonceController {
         }
 
         try {
+            def illustrations = request.getFile('illustrations')
+
+            println illustrations
+
             if (params.author == null) {
                 annonce.author = springSecurityService.currentUser
             }
@@ -113,5 +133,20 @@ class AnnonceController {
             }
             '*' { render status: NOT_FOUND }
         }
+    }
+
+    private Boolean validateFileIllustration(files) {
+        if (files.size > 5120000) {
+            flash.message = "La taille des images ne doit pas dépasser 5 Mo"
+            redirect(uri: request.getHeader("referer"))
+            return Boolean.FALSE
+        }
+        if (!files.contentType.startsWith("image/")) {
+            flash.message = "Seuls les fichiers d'images sont acceptés"
+            redirect(uri: request.getHeader("referer"))
+            return Boolean.FALSE
+        }
+
+        return Boolean.TRUE
     }
 }
