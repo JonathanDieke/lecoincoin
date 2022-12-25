@@ -18,10 +18,10 @@ class AnnonceController {
         params.max = Math.min(max ?: 5, 100)
 
         def currentUser = springSecurityService.currentUser
-        if(currentUser.getAuthorities()[0].authority == "ROLE_CUSTOMER"){
-            render view :"index", model:[annonceList: currentUser.annonces.sort { it.dateCreated }, annonceCount: currentUser.annonces.size()]
-        }else{
-            respond annonceService.list(params), model:[annonceCount: annonceService.count()]
+        if (currentUser.getAuthorities()[0].authority == "ROLE_CUSTOMER") {
+            render view: "index", model: [annonceList: currentUser.annonces.sort { it.dateCreated }, annonceCount: currentUser.annonces.size()]
+        } else {
+            respond annonceService.list(params), model: [annonceCount: annonceService.count()]
         }
     }
 
@@ -30,7 +30,7 @@ class AnnonceController {
     }
 
     def create() {
-        respond new Annonce(params), model:[userList: userService.list()]
+        respond new Annonce(params), model: [userList: userService.list()]
     }
 
     def save(Annonce annonce) {
@@ -40,11 +40,13 @@ class AnnonceController {
         }
 
         try {
-            annonce.status = params.status == "on" ? Boolean.TRUE : Boolean.FALSE
-//            println params.status
+            if (params.author == null) {
+                annonce.author = springSecurityService.currentUser
+            }
+            annonce.isActive = params.status == "on" ? Boolean.TRUE : Boolean.FALSE
             annonceService.save(annonce)
         } catch (ValidationException e) {
-            respond annonce.errors, view:'create'
+            respond annonce.errors, view: 'create'
             return
         }
 
@@ -58,7 +60,7 @@ class AnnonceController {
     }
 
     def edit(Long id) {
-        respond annonceService.get(id), model:[userList: userService.list()]
+        respond annonceService.get(id), model: [userList: userService.list()]
     }
 
     def update(Annonce annonce) {
@@ -68,9 +70,12 @@ class AnnonceController {
         }
 
         try {
+            if (params.author == null) {
+                annonce.author = springSecurityService.currentUser
+            }
             annonceService.save(annonce)
         } catch (ValidationException e) {
-            respond annonce.errors, view:'edit'
+            respond annonce.errors, view: 'edit'
             return
         }
 
@@ -79,7 +84,7 @@ class AnnonceController {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'annonce.label', default: 'Annonce'), annonce.id])
                 redirect annonce
             }
-            '*'{ respond annonce, [status: OK] }
+            '*' { respond annonce, [status: OK] }
         }
     }
 
@@ -94,9 +99,9 @@ class AnnonceController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'annonce.label', default: 'Annonce'), id])
-                redirect action:"index", method:"GET"
+                redirect action: "index", method: "GET"
             }
-            '*'{ render status: NO_CONTENT }
+            '*' { render status: NO_CONTENT }
         }
     }
 
@@ -106,7 +111,7 @@ class AnnonceController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'annonce.label', default: 'Annonce'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*'{ render status: NOT_FOUND }
+            '*' { render status: NOT_FOUND }
         }
     }
 }
