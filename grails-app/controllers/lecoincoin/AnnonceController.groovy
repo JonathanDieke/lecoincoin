@@ -32,18 +32,13 @@ class AnnonceController {
     }
 
     def save(Annonce annonce) {
+
         if (annonce == null) {
             notFound()
             return
         }
 
         try {
-            // get files for illustrations
-            def files = request.getFile('files')
-            //check size of files
-            if (!validateFileIllustration(files)) {
-                return
-            }
             //save annonce
             if (params.author == null) {
                 annonce.author = springSecurityService.currentUser
@@ -52,13 +47,26 @@ class AnnonceController {
             annonce.isActive = params.status == "on" ? Boolean.TRUE : Boolean.FALSE
             annonce.save(flush: true)
 
-            //now transfer file
-            final filename = "user-" + springSecurityService.currentUserId + "-annonce-" + annonce.id + '-' + System.currentTimeMillis() + '-' + files.originalFilename.replace(" ", "_").toLowerCase()
-            def pathToDir = new File(System.getProperty("user.dir"))
-            File fileDest = new File(pathToDir, "grails-app/uploads/${filename}")
-            files.transferTo(fileDest)
+            // get files for illustrations
+            request.getFiles('files[]').each{ file ->
+                println file.originalFilename
 
-            annonce.addToIllustrations(new Illustration(filename: filename))
+                //validate file : size and format
+                if (!validateFileIllustration(file)) {
+                    annonce.delete()
+                    return
+                }
+
+                //now transfer file
+                final filename = "user-" + springSecurityService.currentUserId + "-annonce-" + annonce.id + '-' + System.currentTimeMillis() + '-' + file.originalFilename.replace(" ", "_").toLowerCase()
+                def pathToDir = new File(System.getProperty("user.dir"))
+                File fileDest = new File(pathToDir, "grails-app/uploads/${filename}")
+                file.transferTo(fileDest)
+
+                // associate to annonce
+                annonce.addToIllustrations(new Illustration(filename: filename))
+            }
+
             annonce.save(flush: true)
 
         } catch (ValidationException e) {

@@ -81,7 +81,7 @@
             </label>
 
             <div class="col-sm-10 col-lg-8 custom-file px-5">
-                <input type="file" class="custom-file-input" id="files" name="files">
+                <input type="file" class="custom-file-input" id="files" name="files[]" multiple>
                 <label class="custom-file-label" for="files">Ajouter des images</label>
             </div>
         </div>
