@@ -10,7 +10,6 @@ class UrlMappings {
         }
 
         "/"(controller: "login", action: "index")
-//        "/login/auth"(view : "00auth")
         name home : "/home"(view:"/index")
         "500"(view:'/error')
         "404"(view:'/notFound')

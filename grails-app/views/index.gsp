@@ -18,7 +18,7 @@
                     <i class="fa fa-user-friends fa-3x"> </i>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="/users/index" class="">
+                    <a href="/users/index">
                         Liste des utilisateurs
                     </a>
                 </div>
@@ -29,7 +29,9 @@
                     <i class="fa fa-user-plus fa-3x"> </i>
                 </div>
                 <div class="card-footer text-center ">
-                    Ajouter un utilisateur
+                    <a href="user/create">
+                        Ajouter un utilisateur
+                    </a>
                 </div>
             </div>
 
@@ -38,7 +40,9 @@
                     <i class="fa fa-newspaper fa-3x"> </i>
                 </div>
                 <div class="card-footer text-center ">
-                    Liste des annonces
+                    <a href="/annonce/index">
+                        Liste des annonces
+                    </a>
                 </div>
             </div>
 
@@ -47,7 +51,9 @@
                     <i class="fa fa-cart-plus fa-3x"> </i>
                 </div>
                 <div class="card-footer text-center ">
-                    Ajouter une annonce
+                    <a href="annonce/create">
+                        Ajouter une annonce
+                    </a>
                 </div>
             </div>
 

@@ -14,7 +14,7 @@ Todo :
 - add multiple files for illustration (ok)
 - display illustration files with other annonce details (ok)
 - redesign login page (ok)
+- add links to home page (ok)
 - pagination render
 - better display alerts
-- add links to home page
 - responsive topbar (username)
