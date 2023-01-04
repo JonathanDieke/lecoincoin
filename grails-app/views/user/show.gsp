@@ -29,11 +29,21 @@
                         <span class="text-dark font-weight-bold">${user.username}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span class="text-gray-700"> Nombre d'annonces : </span>
-                        <span class="text-dark font-weight-bold">${user.annonces.size()}</span>
+                        <span class="text-gray-700"> Les annonces : </span>
+                        <div>
+                            <ul>
+                                <g:each in="${user.annonces}" var="${annonce}">
+                                    <li>
+                                        <a href="/annonce/show/${annonce.id}">
+                                        ${annonce.title}
+                                        </a>
+                                    </li>
+                                </g:each>
+                            </ul>
+                        </div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span class="text-gray-700"> Rôles : </span>
+                        <span class="text-gray-700"> Rôle : </span>
                         <span class="text-dark font-weight-bold">${user.getAuthoritiesForHTMLRender()}</span>
                     </li>
                 </ul>

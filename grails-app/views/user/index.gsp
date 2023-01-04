@@ -38,7 +38,7 @@
                         <tr >
                             <th scope="col">Nom d'utilisateur</th>
                             <th scope="col">Nombre d'annonces</th>
-                            <th scope="col">Roles</th>
+                            <th scope="col">Role</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
