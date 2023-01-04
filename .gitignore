@@ -10,4 +10,5 @@ out/
 .project
 .settings
 .classpath
+grails-app/assets/images/uploads
 grails-app/uploads

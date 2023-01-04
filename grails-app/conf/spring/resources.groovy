@@ -3,3 +3,5 @@ import lecoincoin.UserPasswordEncoderListener
 beans = {
     userPasswordEncoderListener(UserPasswordEncoderListener)
 }
+//loginForm.loginProcessingUrl = '/login'
+//loginForm.display = false

@@ -12,8 +12,9 @@ Todo :
 - add cards on index page (ok)
 - redirect on login page when request on / (ok)
 - add multiple files for illustration (ok)
-- display illustration files with other annonce details
-- redesign login page
+- display illustration files with other annonce details (ok)
+- redesign login page (ok)
 - pagination render
 - better display alerts
 - add links to home page
+- responsive topbar (username)

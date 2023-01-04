@@ -44,7 +44,12 @@
             </sec:ifAnyGranted>
             <li class="list-group-item d-flex justify-content-between">
                 <span class="text-gray-700">Illustrations</span>
-                <span class="text-dark font-weight-bold">${annonce.illustrations.size()}</span>
+                <div>
+                    <g:each in="${ annonce.illustrations }" var="illustration">
+                        <asset:image src="/uploads/${illustration.filename}" width="80" height="80" class="rounded-circle"/>
+                    </g:each>
+%{--                    <span class="text-dark font-weight-bold">${annonce.illustrations.size()}</span>--}%
+                </div>
             </li>
         </ul>
     </div>

@@ -60,7 +60,7 @@ class AnnonceController {
                 //now transfer file
                 final filename = "user-" + springSecurityService.currentUserId + "-annonce-" + annonce.id + '-' + System.currentTimeMillis() + '-' + file.originalFilename.replace(" ", "_").toLowerCase()
                 def pathToDir = new File(System.getProperty("user.dir"))
-                File fileDest = new File(pathToDir, "grails-app/uploads/${filename}")
+                File fileDest = new File(pathToDir, "grails-app/assets/images/uploads/${filename}")
                 file.transferTo(fileDest)
 
                 // associate to annonce
