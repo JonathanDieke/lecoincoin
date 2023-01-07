@@ -3,7 +3,7 @@ package lecoincoin
 import grails.gorm.services.Service
 
 @Service(User)
-interface UserService {
+interface UserService  {
 
     User get(Serializable id)
 
@@ -14,5 +14,6 @@ interface UserService {
     void delete(Serializable id)
 
     User save(User user)
+
 
 }

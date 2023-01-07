@@ -4,11 +4,8 @@
         <meta name="layout" content="my-layout" />
         <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
-    </head>
 
-    <heading>
-        test heading
-    </heading>
+    </head>
 
     <body>
         <!-- Page Heading -->
@@ -27,9 +24,10 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
 
-        <div class="pagination">
-            <g:paginate total="${userCount ?: 0}" max="5" />
+        <div class="container-fluid mb-3 pagination">
+            <g:paginate total="${userCount ?: 0}" max="3" />
         </div>
+
 
         <div class="container-fluid">
             <div class="col-120 table-responsive">

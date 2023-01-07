@@ -16,10 +16,10 @@ Todo :
 - redesign login page (ok)
 - add links to home page (ok)
 - list user annonces (ok)
+- pagination render
+- better display alerts / error messages
+- responsive topbar (username)
 - refactor codes
     - refactor user controller
     - refactor annonce controller
     - refactor illustration uploading
-- pagination render
-- better display alerts
-- responsive topbar (username)

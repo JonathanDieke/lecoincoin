@@ -16,10 +16,10 @@
         <div id="show-user" class="content scaffold-show container-fluid " role="main">
 
             <g:if test="${flash.message}">
-                <div class="message alert alert-success text-center text-white" role="status">${flash.message}</div>
+                <div class="message alert alert-success text-center" role="status">${flash.message}</div>
             </g:if>
 
-            <div class="card w-100 col-sm-11 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">
+            <div class="card w-100 col-sm-12 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">
                 <div class="card-header">
                     Informations détaillées
                 </div>
@@ -49,8 +49,8 @@
                 </ul>
             </div>
             <g:form resource="${this.user}" method="DELETE" class="justify-content-center d-flex col-sm-11">
-                <fieldset class="buttons w-100 d-flex justify-content-around">
-                    <g:link class="edit btn btn-success shadow-sm" action="edit" resource="${this.user}">
+                <fieldset class="buttons w-100 d-flex justify-content-start">
+                    <g:link class="edit btn btn-success shadow-sm mr-2" action="edit" resource="${this.user}">
                         <g:message code="default.button.edit.label" default="Edit" />
                     </g:link>
                     <input class="delete btn btn-danger shadow-sm" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />

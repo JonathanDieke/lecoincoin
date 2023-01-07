@@ -24,7 +24,6 @@ class UserController {
 
     def create() {
         def roleList = Role.list()
-        println roleList
         respond new User(params), model: [roleList: roleList]
     }
 
@@ -38,6 +37,9 @@ class UserController {
             def roleToAssociate = Role.get(params.role)
             def newUser = userService.save(user)
             UserRole.create(newUser, roleToAssociate, true)
+//            print("customiiiiing", customUserService)
+//            customUserService.saveWithRole(user,  params.role)
+
         } catch (ValidationException e) {
             respond user.errors, view:'create'
             return

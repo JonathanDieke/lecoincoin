@@ -13,13 +13,13 @@
     </h1>
 </div>
 
-<div id="show-annonce" class="content scaffold-show" role="main">
+<div id="show-annonce" class="content scaffold-show container-fluid" role="main">
 
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
 
-    <div class="card w-100 col-sm-11 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">
+    <div class="card w-100 col-sm-12 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">
         <div class="card-header">
             Informations détaillées
         </div>
@@ -39,7 +39,7 @@
             <sec:ifAnyGranted roles="ROLE_ADMIN, ROLE_MODERATOR">
                 <li class="list-group-item d-flex justify-content-between">
                     <span class="text-gray-700">Autheur</span>
-                    <span class="text-dark font-weight-bold">${annonce.author.username}</span>
+                    <a class="font-weight-bold" href="/user/show/${annonce.author.id}">${annonce.author.username}</a>
                 </li>
             </sec:ifAnyGranted>
             <li class="list-group-item d-flex justify-content-between">
@@ -54,9 +54,9 @@
         </ul>
     </div>
 
-    <g:form resource="${this.annonce}" method="DELETE" class="justify-content-center d-flex col-sm-11">
-        <fieldset class="buttons w-100 d-flex justify-content-around">
-            <g:link class="edit btn btn-success shadow-sm" action="edit" resource="${this.annonce}">
+    <g:form resource="${this.annonce}" method="DELETE" class="justify-content-start d-flex col-sm-11">
+        <fieldset class="buttons w-100 d-flex justify-content-start ">
+            <g:link class="edit btn btn-success shadow-sm mr-2 " action="edit" resource="${this.annonce}">
                 <g:message code="default.button.edit.label" default="Edit"/>
             </g:link>
             <input class="delete btn btn-danger shadow-sm" type="submit"

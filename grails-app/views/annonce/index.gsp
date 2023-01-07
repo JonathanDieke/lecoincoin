@@ -22,7 +22,7 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
 
-        <div class="pagination container-fluid">
+        <div class="pagination container-fluid mb-3">
             <g:paginate total="${annonceCount ?: 0}" max="5" />
         </div>
 
