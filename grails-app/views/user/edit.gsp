@@ -15,7 +15,7 @@
 
     <div id="create-user" class="content scaffold-create container-fluid" role="main">
         <g:if test="${flash.message}">
-            <div class="alert alert-success text-center" role="status">*
+            <div class="alert alert-success" role="status">*
                 ${flash.message}
             </div>
         </g:if>

@@ -15,6 +15,7 @@ class Annonce {
         description blank: false, nullable: false
         price min: 0F, nullable: false, scale: 2
         isActive nullable: false
+        illustrations nullable: true
     }
 
     def getStatus(){

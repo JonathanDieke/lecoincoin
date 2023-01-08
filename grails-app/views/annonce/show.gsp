@@ -16,7 +16,7 @@
 <div id="show-annonce" class="content scaffold-show container-fluid" role="main">
 
     <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
+        <div class="message alert alert-success" role="status">${flash.message}</div>
     </g:if>
 
     <div class="card w-100 col-sm-12 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">
@@ -45,10 +45,14 @@
             <li class="list-group-item d-flex justify-content-between">
                 <span class="text-gray-700">Illustrations</span>
                 <div>
-                    <g:each in="${ annonce.illustrations }" var="illustration">
-                        <asset:image src="/uploads/${illustration.filename}" width="80" height="80" class="rounded-circle"/>
-                    </g:each>
-%{--                    <span class="text-dark font-weight-bold">${annonce.illustrations.size()}</span>--}%
+                    <g:if test="${annonce.illustrations.size() > 0}">
+                        <g:each in="${ annonce.illustrations }" var="illustration">
+                            <asset:image src="/uploads/${illustration.filename}" width="80" height="80" class="rounded-circle"/>
+                        </g:each>
+                    </g:if>
+                    <g:else>
+                        <span class="text-dark font-italic">Aucune illustration</span>
+                    </g:else>
                 </div>
             </li>
         </ul>

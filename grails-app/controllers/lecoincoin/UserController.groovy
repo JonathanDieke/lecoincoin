@@ -41,7 +41,7 @@ class UserController {
 //            customUserService.saveWithRole(user,  params.role)
 
         } catch (ValidationException e) {
-            respond user.errors, view:'create'
+            respond user.errors, view:'create', model: [roleList: roleList]
             return
         }
 

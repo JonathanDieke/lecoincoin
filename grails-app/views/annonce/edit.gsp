@@ -15,10 +15,10 @@
 </div>
 
 
-<div id="edit-annonce" class="content scaffold-edit" role="main">
+<div id="edit-annonce" class="content scaffold-edit container-fluid " role="main">
 
     <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
+        <div class="message alert alert-success" role="status">${flash.message}</div>
     </g:if>
 
     <g:hasErrors bean="${this.annonce}">
@@ -87,16 +87,15 @@
             </div>
         </sec:ifAnyGranted>
 
-        <div class="form-group row">
-            <label class="text-dark col-sm-2" for="price">Illustrations
-                <span class='required-indicator'>*</span>
-            </label>
-
-            <div class="col-sm-10 col-lg-8 custom-file px-5">
-                <input type="file" class="custom-file-input" id="illustrations" name="illustrations">
-                <label class="custom-file-label" for="illustrations">Ajouter des images</label>
-            </div>
-        </div>
+%{--        <div class="form-group row">--}%
+%{--            <label class="text-dark col-sm-2" for="price">Illustrations--}%
+%{--                <span class='required-indicator'>*</span>--}%
+%{--            </label>--}%
+%{--            <div class="col-sm-10 col-lg-8 custom-file px-5">--}%
+%{--                <input type="file" class="custom-file-input" id="file" name="files[]">--}%
+%{--                <label class="custom-file-label" for="file">Ajouter des images</label>--}%
+%{--            </div>--}%
+%{--        </div>--}%
 
 
         <div class="form-group row">
@@ -122,6 +121,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script>
+%{--    show image name in illustration inupt file --}%
     $('.custom-file input').change(function (e) {
         var files = [];
         for (var i = 0; i < $(this)[0].files.length; i++) {

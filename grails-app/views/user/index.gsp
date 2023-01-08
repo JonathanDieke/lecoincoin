@@ -22,7 +22,7 @@
 
         <g:if test="${flash.message}">
             <div class="container-fluid">
-                <div class="message  alert alert-success text-center" role="status">${flash.message}</div>
+                <div class="message  alert alert-success" role="status">${flash.message}</div>
             </div>
         </g:if>
 

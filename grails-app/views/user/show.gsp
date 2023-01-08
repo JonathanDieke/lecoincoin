@@ -17,7 +17,7 @@
 <div id="show-user" class="content scaffold-show container-fluid " role="main">
 
     <g:if test="${flash.message}">
-        <div class="message alert alert-success text-center" role="status">${flash.message}</div>
+        <div class="message alert alert-success" role="status">${flash.message}</div>
     </g:if>
 
     <div class="card w-100 col-sm-12 mx-auto p-0 overflow-hidden mb-3" style="width: 18rem;">

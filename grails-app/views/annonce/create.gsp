@@ -13,19 +13,21 @@
     </h1>
 </div>
 
-<div id="create-annonce" class="content scaffold-create container-fluid" >
+<div id="create-annonce" class="content scaffold-create container-fluid">
 
     <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
+        <div class="message alert alert-success" role="status">${flash.message}</div>
     </g:if>
 
     <g:hasErrors bean="${this.annonce}">
-        <ul class="errors" role="alert">
-            <g:eachError bean="${this.annonce}" var="error">
-                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
-                        error="${error}"/></li>
-            </g:eachError>
-        </ul>
+        <div class="alert alert-warning">
+            <ul class="errors" role="alert">
+                <g:eachError bean="${this.annonce}" var="error">
+                    <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
+                            error="${error}"/></li>
+                </g:eachError>
+            </ul>
+        </div>
     </g:hasErrors>
 
     <g:form resource="${this.annonce}" method="POST" class="form container-fluid" enctype="multipart/form-data">
@@ -101,7 +103,7 @@
         <fieldset class="buttons  ">
             %{--                    <g:submitButton name="create" class="save btn btn-primary shadow-lg offset-2 col-sm-10 col-lg-8" value="${message(code: 'default.button.create.label', default: 'Create')}" />--}%
             %{--                    <g:submitButton name="create" class="save btn btn-primary shadow-lg col-2" value="${message(code: 'default.button.create.label', default: 'Create')}" />--}%
-            <g:submitButton name="create" class="save btn btn-primary shadow-lg offset-5 col-2"
+            <g:submitButton name="create" class="save btn btn-primary shadow-lg offset-0 col-2"
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>
         </fieldset>
     </g:form>

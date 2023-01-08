@@ -1,14 +1,8 @@
-revoir le rendu html pour les user_roles : potentiellement utiliser des customtag 
-
-faire de la recherche sur toutes les pages index 
-
-rajouter nombre de users max par page 
-
-refactoring bootstrap with loops - ok
-
-
+faire de la recherche sur toutes les pages index
+ajouter des filtres sur les index
 
 Todo :
+- refactoring bootstrap with loops - ok
 - add cards on index page (ok)
 - redirect on login page when request on / (ok)
 - add multiple files for illustration (ok)
@@ -17,7 +11,7 @@ Todo :
 - add links to home page (ok)
 - list user annonces (ok)
 - pagination render (ok)
-- better display alerts / error messages
+- better display alerts / error messages (ok)
 - responsive topbar (username)
 - refactor codes
     - refactor user controller
