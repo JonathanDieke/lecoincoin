@@ -16,7 +16,7 @@ Todo :
 - redesign login page (ok)
 - add links to home page (ok)
 - list user annonces (ok)
-- pagination render
+- pagination render (ok)
 - better display alerts / error messages
 - responsive topbar (username)
 - refactor codes

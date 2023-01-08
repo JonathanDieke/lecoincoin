@@ -21,16 +21,17 @@
         <!-- End Page Heading -->
 
         <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
+            <div class="container-fluid">
+                <div class="message  alert alert-success text-center" role="status">${flash.message}</div>
+            </div>
         </g:if>
 
         <div class="container-fluid mb-3 pagination">
             <g:paginate total="${userCount ?: 0}" max="3" />
         </div>
 
-
         <div class="container-fluid">
-            <div class="col-120 table-responsive">
+            <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
                         <tr >

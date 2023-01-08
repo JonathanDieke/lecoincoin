@@ -14,15 +14,16 @@
             </h1>
         </div>
 
-        <div id="create-user" class="content scaffold-create" role="main">
+        <div id="create-user" class="content scaffold-create container-fluid" role="main">
             <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
+                <div class="message alert alert-success" role="status">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${this.user}">
-                <ul class="errors" role="alert">
+                <ul class="errors alert alert-warning" role="alert">
                     <g:eachError bean="${this.user}" var="error">
                         <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message
-                                error="${error}"/></li>
+                                error="${error}"/>
+                        </li>
                     </g:eachError>
                 </ul>
             </g:hasErrors>

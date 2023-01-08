@@ -13,7 +13,7 @@
     </h1>
 </div>
 
-<div id="create-annonce" class="content scaffold-create">
+<div id="create-annonce" class="content scaffold-create container-fluid" >
 
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
