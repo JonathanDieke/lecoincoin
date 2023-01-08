@@ -102,7 +102,7 @@
             <div class="col-sm-10 offset-sm-2">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="status" name="status" <g:if
-                            test="${this.annonce.status}">checked</g:if>>
+                            test="${this.annonce.isActive}">checked</g:if>>
                     <label class="form-check-label" for="status">
                         Annonce active
                     </label>

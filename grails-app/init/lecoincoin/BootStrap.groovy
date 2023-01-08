@@ -27,7 +27,7 @@ class BootStrap {
                                 price: 100 * aIndex,
                                 isActive: aIndex%2 == 0 ? true: false)
                         (1..2).each {// create illutations belong to annonce
-                            annonceInstance.addToIllustrations(new Illustration(filename: "grails.svg"))
+                            annonceInstance.addToIllustrations(new Illustration(filename: "../annonce-test.jpg"))
                         }
                         userInstance.addToAnnonces(annonceInstance)
                 }

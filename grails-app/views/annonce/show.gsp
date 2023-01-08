@@ -36,6 +36,10 @@
                 <span class="text-gray-700">Prix</span>
                 <span class="text-dark font-weight-bold">${annonce.price}</span>
             </li>
+            <li class="list-group-item d-flex justify-content-between">
+                <span class="text-gray-700">Statut</span>
+                <span class="text-dark font-weight-bold">${annonce.status}</span>
+            </li>
             <sec:ifAnyGranted roles="ROLE_ADMIN, ROLE_MODERATOR">
                 <li class="list-group-item d-flex justify-content-between">
                     <span class="text-gray-700">Autheur</span>
@@ -49,6 +53,7 @@
                         <g:each in="${ annonce.illustrations }" var="illustration">
                             <asset:image src="/uploads/${illustration.filename}" width="80" height="80" class="rounded-circle"/>
                         </g:each>
+                        <asset:image src="/uploads/../apple-touch-icon-retina.png" width="80" height="80" class="rounded-circle"/>
                     </g:if>
                     <g:else>
                         <span class="text-dark font-italic">Aucune illustration</span>
