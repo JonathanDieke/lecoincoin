@@ -17,7 +17,7 @@ class AnnonceController {
 
         def currentUser = springSecurityService.currentUser
         if (currentUser.getAuthorities()[0].authority == "ROLE_CUSTOMER") {
-            render view: "index", model: [annonceList: currentUser.annonces.sort { it.dateCreated }, annonceCount: currentUser.annonces.size(), params:params]
+            render view: "index", model: [annonceList: Annonce.findAllByAuthor(currentUser, params), annonceCount: currentUser.annonces.size(), params:params]
         } else {
             respond annonceService.list(params), model: [annonceCount: annonceService.count()]
         }

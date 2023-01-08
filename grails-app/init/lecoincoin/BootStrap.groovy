@@ -19,7 +19,7 @@ class BootStrap {
         ["customer1","customer2"].each { // create users
             String uName ->
                 def userInstance = new User(username: uName, password: uName)
-                (1..8).each { // create annonces
+                (1..6).each { // create annonces
                     Integer aIndex ->
                         def annonceInstance = new Annonce(
                                 title: "Titre annonce $aIndex de $uName",

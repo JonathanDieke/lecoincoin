@@ -3,7 +3,7 @@ package lecoincoin
 import grails.gorm.services.Service
 
 @Service(Annonce)
-interface AnnonceService {
+interface AnnonceService /*implements MyAnnonceService*/ {
 
     Annonce get(Serializable id)
 
