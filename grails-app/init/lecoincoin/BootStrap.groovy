@@ -16,17 +16,17 @@ class BootStrap {
         UserRole.create(adminUser, roleAdmin, true)
         UserRole.create(moderatorUser, roleModerator, true)
 
-        ["customer1","customer2"].each { // create users
+        ["customer1"].each { // create users
             String uName ->
                 def userInstance = new User(username: uName, password: uName)
-                (1..6).each { // create annonces
+                (1..2).each { // create annonces
                     Integer aIndex ->
                         def annonceInstance = new Annonce(
                                 title: "Titre annonce $aIndex de $uName",
                                 description: "Description annonce $aIndex de $uName",
                                 price: 100 * aIndex,
                                 isActive: aIndex%2 == 0 ? true: false)
-                        (1..2).each {// create illutations belong to annonce
+                        (1..1).each {// create illutations belong to annonce
                             annonceInstance.addToIllustrations(new Illustration(filename: "../annonce-test.jpg"))
                         }
                         userInstance.addToAnnonces(annonceInstance)

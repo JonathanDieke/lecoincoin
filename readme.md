@@ -30,10 +30,8 @@ Au lancement de l'application 4 utilisateurs sont créés : un administrateur, u
 - Client 2 : username = *customer2* / mot de passe = *customer2*
 
 # Démonstration
-Nous proposons une vidéo de démonstration de notre solution à l'adresse suivente : www.youtube.com
+Nous proposons une vidéo de démonstration de notre solution à l'adresse suivante : https://youtu.be/Alf1Bn9HImI
 
-# Lien vers l'application :
-Pour faciliter les tests de Monsieur et Madame Lecoincoin, l'application a été déployé sur la plateforme heroku à l'adresse suivante : https://lecoincoin.herokuapp.com
 
 
 
