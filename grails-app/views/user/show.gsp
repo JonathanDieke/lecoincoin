@@ -57,16 +57,18 @@
             </li>
         </ul>
     </div>
-    <g:form resource="${this.user}" method="DELETE" class="justify-content-center d-flex col-sm-11">
-        <fieldset class="buttons w-100 d-flex justify-content-start">
-            <g:link class="edit btn btn-success shadow-sm mr-2" action="edit" resource="${this.user}">
-                <g:message code="default.button.edit.label" default="Edit"/>
-            </g:link>
-            <input class="delete btn btn-danger shadow-sm" type="submit"
-                   value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-                   onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
-        </fieldset>
-    </g:form>
+    <sec:ifAllGranted roles="ROLE_ADMIN">
+        <g:form resource="${this.user}" method="DELETE" class="justify-content-center d-flex col-sm-11">
+            <fieldset class="buttons w-100 d-flex justify-content-start">
+                <g:link class="edit btn btn-success shadow-sm mr-2" action="edit" resource="${this.user}">
+                    <g:message code="default.button.edit.label" default="Edit"/>
+                </g:link>
+                <input class="delete btn btn-danger shadow-sm" type="submit"
+                       value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+                       onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
+            </fieldset>
+        </g:form>
+    </sec:ifAllGranted>
 </div>
 </body>
 </html>

@@ -11,6 +11,7 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+
     def index(Integer max) {
         params.max = Math.min(max ?: 5, 100)
         respond userService.list(params), model:[userCount: userService.count()]
@@ -22,11 +23,13 @@ class UserController {
         respond user
     }
 
+    @Secured(["ROLE_ADMIN"])
     def create() {
         def roleList = Role.list()
         respond new User(params), model: [roleList: roleList]
     }
 
+    @Secured(["ROLE_ADMIN"])
     def save(User user) {
         if (user == null) {
             notFound()
@@ -54,12 +57,13 @@ class UserController {
             '*' { respond user, [status: CREATED] }
         }
     }
-
+    @Secured(["ROLE_ADMIN"])
     def edit(Long id) {
         def roleList = Role.list()
         respond userService.get(id), model: [roleList: roleList]
     }
 
+    @Secured(["ROLE_ADMIN"])
     def update(User user) {
         if (user == null) {
             notFound()
@@ -85,6 +89,7 @@ class UserController {
         }
     }
 
+    @Secured(["ROLE_ADMIN"])
     def delete(Long id) {
         if (id == null) {
             notFound()

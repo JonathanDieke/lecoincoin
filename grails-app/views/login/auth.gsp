@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Mot de passe :</label>
-                            <input type="text" name="${passwordParameter ?: 'password'}" id="password" class="form-control">
+                            <input type="password" name="${passwordParameter ?: 'password'}" id="password" class="form-control">
                         </div>
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input" id="remember_me" name="${rememberMeParameter ?: 'remember-me'}" <g:if test='${hasCookie}'>checked="checked"</g:if>>
