@@ -181,7 +181,7 @@
                                 Bonjour
                                 <span class="mx-2 d-none d-lg-inline text-gray-900 small text-uppercase"><sec:loggedInUserInfo
                                         field="username"/></span>
-                                <img class="img-profile rounded-circle"
+                                <img class="img-profile rounded-circle ml-2 ml-lg-0"
                                      src="https://i.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U">
 
                             </a>

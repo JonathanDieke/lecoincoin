@@ -53,7 +53,6 @@
                         <g:each in="${ annonce.illustrations }" var="illustration">
                             <asset:image src="/uploads/${illustration.filename}" width="80" height="80" class="rounded-circle"/>
                         </g:each>
-                        <asset:image src="/uploads/../apple-touch-icon-retina.png" width="80" height="80" class="rounded-circle"/>
                     </g:if>
                     <g:else>
                         <span class="text-dark font-italic">Aucune illustration</span>
